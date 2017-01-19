@@ -74,15 +74,17 @@ function calc(state, itemType) {
 
 
 var calculatePriceFor = function (state, item) {
-    var result = null;
-    if (items[item].type === "PreparedFood") {
-        result = ( 1 + base(state) ) * items[item].price;
-    }
-    else {
-        result = calc(state, items[item].type) * items[item].price + items[item].price;
-    }
-    console.log(`${item}: $${result.toFixed(2)}`);
-    return result;
+    // var result = null;
+    // if (items[item].type === "PreparedFood") {
+    //     result = ( 1 + base(state) ) * items[item].price;
+    // }
+    // else {
+    //     result = calc(state, items[item].type) * items[item].price + items[item].price;
+    // }
+    // console.log(`${item}: $${result.toFixed(2)}`);
+    // return result;
+    var calculator = new TaxCalculator();
+    return calculator.calculatePriceFor(state, item);
 };
 class TaxCalculator {
     // У этой функции нелья менять интерфейс
@@ -96,6 +98,17 @@ class TaxCalculator {
             calculatePriceFor(state, item);
         }
         console.log(`----Have a nice day!-----`);
+    }
+    calculatePriceFor(state, item){
+        var result = null;
+        if (items[item].type === "PreparedFood") {
+            result = ( 1 + base(state) ) * items[item].price;
+        }
+        else {
+            result = calc(state, items[item].type) * items[item].price + items[item].price;
+        }
+        console.log(`${item}: $${result.toFixed(2)}`);
+        return result;
     }
 }
 
