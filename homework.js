@@ -16,11 +16,15 @@ class Items {
     constructor(items){
         this._items = items;
     }
-    getItemsNames(){
+    get itemsNames(){
         var arr = [];
         for(var key in this._items){
             arr.push(key);
         }
+        return arr;
+    }
+    get randomItem(){
+        return this.itemsNames[Math.floor(Math.random() * this.itemsNames.length)];
     }
 }
 
@@ -121,8 +125,8 @@ function calculateTaxes() {
 }
 
 function getSelectedItem() {
-    var items = ["milk", "eggs", "coca-cola", "amoxicillin", "aspirin", "marijuana", "hamburger", "ceasar salad"];
-    return items[Math.floor(Math.random() * items.length)];
+
+    return new Items(items).randomItem;
 }
 
 function getSelectedState() {
