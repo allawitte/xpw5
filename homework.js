@@ -13,6 +13,16 @@ var items = {
 };
 const Items = require('./items');
 
+var states = {
+    "Alabama":{"Groceries": 0, "PrescriptionDrug": ""},
+    "Alaska":{"Groceries": 0, "PrescriptionDrug": ""},
+    "Arizona":{"Groceries": 0, "PrescriptionDrug": ""},
+    "Arkansas":{"Groceries": 0.015, "PrescriptionDrug": ""},
+    "California":{"Groceries": 0, "PrescriptionDrug": ""},
+    "Colorado":{"Groceries": 0, "PrescriptionDrug": ""},
+    "Connecticut":{"Groceries": 0, "PrescriptionDrug": ""}
+};
+
 
 
 var itemTypes =
