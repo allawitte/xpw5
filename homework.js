@@ -102,7 +102,7 @@ class TaxCalculator {
         var result = null;
         var itms = new Items(items);
         var itm = itms.getItemType(item);
-        if (items[item].type === "PreparedFood") {
+        if (itm === "PreparedFood") {
             result = ( 1 + new States(states).getState(state).base ) * items[item].price;
         }
         else {
