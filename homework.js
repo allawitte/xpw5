@@ -95,7 +95,7 @@ class TaxCalculator {
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
             var item = new Items(items).randomItem;
-            calculatePriceFor(state, item);
+            this.calculatePriceFor(state, item);
         }
         console.log(`----Have a nice day!-----`);
     }
@@ -118,12 +118,13 @@ calculateTaxes();
 
 //############################
 //Тесты:
+var calculator = new TaxCalculator();
 var tests = [
-    () => assertEquals(3.0 * (1 + 0.04), calculatePriceFor("Alabama", "eggs")),
-    () => assertEquals(0.4 * (1 + 0.015 + 0.065), calculatePriceFor("Arkansas", "coca-cola")),
-    () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("Alaska", "amoxicillin")),
-    () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("California", "amoxicillin")),
-    () => assertEquals(2 * (1 + 0.0635), calculatePriceFor("Connecticut", "hamburger")),
+    () => assertEquals(3.0 * (1 + 0.04), calculator.calculatePriceFor("Alabama", "eggs")),
+    () => assertEquals(0.4 * (1 + 0.015 + 0.065), calculator.calculatePriceFor("Arkansas", "coca-cola")),
+    () => assertEquals(6.7 * (1 + 0.0), calculator.calculatePriceFor("Alaska", "amoxicillin")),
+    () => assertEquals(6.7 * (1 + 0.0), calculator.calculatePriceFor("California", "amoxicillin")),
+    () => assertEquals(2 * (1 + 0.0635), calculator.calculatePriceFor("Connecticut", "hamburger")),
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
