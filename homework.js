@@ -80,8 +80,7 @@ function base(state) {
     //     "Connecticut": 0.0635
     // };
     // return taxes[state];
-    var myState = new States(states);
-    return myState.getState(state).base;
+    return new States(states).getState(state).base;
 }
 
 function calc(state, itemType) {
@@ -90,7 +89,7 @@ function calc(state, itemType) {
     if (itemTypeTaxModifier[state] === "") {
         return 0;
     }
-    return base(state) + itemTypeTaxModifier[state];
+    return new States(states).getState(state).base + itemTypeTaxModifier[state];
 }
 
 //const TaxCalculator = require('./taxcalculator');
