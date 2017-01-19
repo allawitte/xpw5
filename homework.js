@@ -146,10 +146,6 @@ function calculateTaxes() {
     new TaxCalculator(states).calculateTax();
 }
 
-function getSelectedState() {
-    return new States(states).statesNames[Math.floor(Math.random() * new States(states).length)];
-}
-
 //############################
 // Кустарный способ писать тесты
 
