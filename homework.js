@@ -92,7 +92,7 @@ class TaxCalculator {
         var state = getSelectedState();
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
-            var item = getSelectedItem();
+            var item = new Items(items).randomItem;
             calculatePriceFor(state, item);
         }
         console.log(`----Have a nice day!-----`);
@@ -122,11 +122,6 @@ runAllTests (tests);
 function calculateTaxes() {
     var calculator = new TaxCalculator();
     calculator.calculateTax();
-}
-
-function getSelectedItem() {
-
-    return new Items(items).randomItem;
 }
 
 function getSelectedState() {
