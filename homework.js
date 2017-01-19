@@ -104,7 +104,7 @@ class TaxCalculator {
             result = ( 1 + new States(states).getState(state).base ) * items[item].price;
         }
         else {
-            result = calc(state, items[item].type) * items[item].price + items[item].price;
+            result = calc(state, new Items(items).getItemType(item)) * items[item].price + items[item].price;
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
