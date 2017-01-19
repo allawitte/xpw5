@@ -57,7 +57,8 @@ function calc(state, itemType) {
 }
 
 
-var calculatePriceFor = function (item, state) {
+var calculatePriceFor = function (state, item) {
+    console.log('item', item);
     var result = null;
     if (items[item].type === "PreparedFood") {
         result = ( 1 + base(state) ) * items[item].price;
@@ -77,7 +78,7 @@ class TaxCalculator {
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
             var item = getSelectedItem();
-            calculatePriceFor(item, state);
+            calculatePriceFor(state, item);
         }
         console.log(`----Have a nice day!-----`);
     }
@@ -98,7 +99,7 @@ var tests = [
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
-//runAllTests (tests);
+runAllTests (tests);
 
 //############################
 //Код ниже этой строчки не надо менять для выполнения домашней работы
