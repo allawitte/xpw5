@@ -122,7 +122,9 @@ function getSelectedState() {
 }
 
 function getOrdersCount() {
-    return Math.floor(Math.random() * 3) + 1;
+    var calculator = new TaxCalculator();
+    return calculator.ordersCount;
+    //return Math.floor(Math.random() * 3) + 1;
 }
 
 //############################
