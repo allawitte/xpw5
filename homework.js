@@ -101,10 +101,10 @@ class TaxCalculator {
     calculatePriceFor(state, item){
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
-            result = ( 1 + new States(states).getState(state).base ) * items[item].price;
+            result = ( 1 + new States(states).getState(state).base ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = calc(state, new Items(items).getItemType(item)) * items[item].price + items[item].price;
+            result = calc(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;

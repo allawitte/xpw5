@@ -22,12 +22,11 @@ class TaxCalculator {
     }
     calculatePriceFor(state, item){
         var result = null;
-        var price = new Items(items).getItemPrice(item);
         if (items[item].type === "PreparedFood") {
-            result = ( 1 + base(state) ) * price;
+            result = ( 1 + base(state) ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = calc(state, items[item].type) * price + price;
+            result = calc(state, items[item].type) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
