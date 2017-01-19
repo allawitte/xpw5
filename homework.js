@@ -109,8 +109,7 @@ runAllTests (tests);
 //Код ниже этой строчки не надо менять для выполнения домашней работы
 
 function calculateTaxes() {
-    var calculator = new TaxCalculator();
-    calculator.calculateTax();
+    new TaxCalculator().calculateTax();
 }
 
 function getSelectedState() {
