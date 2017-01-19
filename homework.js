@@ -85,6 +85,7 @@ function calc(state, itemType) {
     return base(state) + itemTypeTaxModifier[state];
 }
 
+//const TaxCalculator = require('./taxcalculator');
 
 
 class TaxCalculator {
