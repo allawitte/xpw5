@@ -140,8 +140,7 @@ function calculateTaxes() {
 
 function getSelectedState() {
     //var state = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut"];
-    var state = new States(states);
-    return state.statesNames[Math.floor(Math.random() * state.length)];
+    return new States(states).statesNames[Math.floor(Math.random() * new States(states).length)];
 }
 
 //############################
