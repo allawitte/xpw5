@@ -23,7 +23,19 @@ var states = {
     "Connecticut":{"Groceries": 0, "PrescriptionDrug": ""}
 };
 
+class States {
+    constructor(states){
+        this._states = states
+    }
 
+    get statesNames(){
+        var arr = [];
+        for(var key in this._states) {
+            arr.push(key);
+        }
+        return arr;
+    }
+}
 
 var itemTypes =
     {
