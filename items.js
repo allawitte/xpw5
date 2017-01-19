@@ -17,6 +17,10 @@ class Items {
     getItemType(item){
         return this._items[item].type;
     }
+
+    getItemPrice(item){
+        return this._items[item].price;
+    }
 }
 
 module.exports = Items;
