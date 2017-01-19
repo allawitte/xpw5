@@ -11,22 +11,23 @@ var items = {
     "hamburger": {price: 2, type: "PreparedFood"},
     "ceasar salad": {price: 4.2, type: "PreparedFood"},
 };
+const Items = require('./items');
 
-class Items {
-    constructor(items){
-        this._items = items;
-    }
-    get itemsNames(){
-        var arr = [];
-        for(var key in this._items){
-            arr.push(key);
-        }
-        return arr;
-    }
-    get randomItem(){
-        return this.itemsNames[Math.floor(Math.random() * this.itemsNames.length)];
-    }
-}
+// class Items {
+//     constructor(items){
+//         this._items = items;
+//     }
+//     get itemsNames(){
+//         var arr = [];
+//         for(var key in this._items){
+//             arr.push(key);
+//         }
+//         return arr;
+//     }
+//     get randomItem(){
+//         return this.itemsNames[Math.floor(Math.random() * this.itemsNames.length)];
+//     }
+// }
 
 var itemTypes =
     {
