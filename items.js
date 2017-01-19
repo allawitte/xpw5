@@ -13,6 +13,10 @@ class Items {
     get randomItem(){
         return this.itemsNames[Math.floor(Math.random() * this.itemsNames.length)];
     }
+
+    getItemType(item){
+        return this._items[item].type;
+    }
 }
 
 module.exports = Items;
