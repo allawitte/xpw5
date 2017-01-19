@@ -121,12 +121,6 @@ function getSelectedState() {
     return state[Math.floor(Math.random() * state.length)];
 }
 
-function getOrdersCount() {
-    var calculator = new TaxCalculator();
-    return calculator.ordersCount;
-    //return Math.floor(Math.random() * 3) + 1;
-}
-
 //############################
 // Кустарный способ писать тесты
 
