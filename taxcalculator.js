@@ -22,6 +22,8 @@ class TaxCalculator {
     }
     calculatePriceFor(state, item){
         var result = null;
+        var itms = new Items(items);
+        var price = itms.getItemPrice(item);
         if (items[item].type === "PreparedFood") {
             result = ( 1 + base(state) ) * items[item].price;
         }
