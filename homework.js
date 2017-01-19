@@ -77,7 +77,7 @@ class TaxCalculator {
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
             var item = getSelectedItem();
-            var result = calculatePriceFor(item, state);
+            calculatePriceFor(item, state);
         }
         console.log(`----Have a nice day!-----`);
     }
