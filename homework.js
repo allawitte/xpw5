@@ -85,6 +85,10 @@ class TaxCalculator {
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
     }
+
+    get ordersCount(){
+        return Math.floor(Math.random() * 3) + 1;
+    }
 }
 
 //############################
