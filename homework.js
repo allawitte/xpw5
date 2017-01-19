@@ -65,7 +65,7 @@ class TaxCalculator {
     // У этой функции нелья менять интерфейс
     // Но можно менять содержимое
     calculateTax() {
-        var ordersCount = getOrdersCount();
+        var ordersCount = this.ordersCount;
         var state = getSelectedState();
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
