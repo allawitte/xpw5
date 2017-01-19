@@ -14,13 +14,13 @@ var items = {
 const Items = require('./items');
 
 var states = {
-    "Alabama":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Alaska":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Arizona":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Arkansas":{"Groceries": 0.015, "PrescriptionDrug": ""},
-    "California":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Colorado":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Connecticut":{"Groceries": 0, "PrescriptionDrug": ""}
+    "Alabama":{"Groceries": 0, "PrescriptionDrug": "", "base":0.04},
+    "Alaska":{"Groceries": 0, "PrescriptionDrug": "", "base":0},
+    "Arizona":{"Groceries": 0, "PrescriptionDrug": "", "base":0.056},
+    "Arkansas":{"Groceries": 0.015, "PrescriptionDrug": "", "base":0.065},
+    "California":{"Groceries": 0, "PrescriptionDrug": "", "base":0.075},
+    "Colorado":{"Groceries": 0, "PrescriptionDrug": "", "base":0.029},
+    "Connecticut":{"Groceries": 0, "PrescriptionDrug": "", "base":0.0635}
 };
 
 class States {
@@ -38,6 +38,9 @@ class States {
 
     get randomState(){
         return this.statesNames[Math.floor(Math.random() * this.statesNames.length)];
+    }
+    getBase(state){
+        return this._states[state].base;
     }
 }
 
