@@ -25,10 +25,10 @@ class TaxCalculator {
         var itms = new Items(items);
         var price = itms.getItemPrice(item);
         if (items[item].type === "PreparedFood") {
-            result = ( 1 + base(state) ) * items[item].price;
+            result = ( 1 + base(state) ) * price;
         }
         else {
-            result = calc(state, items[item].type) * items[item].price + items[item].price;
+            result = calc(state, items[item].type) * price + price;
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
