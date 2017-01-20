@@ -59,15 +59,6 @@ class States {
 }
 
 
-function calcNoBasicTax(state, itemType){
-    return new States(states).calcNoBasicTax(state, itemType);
-    // if (new States(states).getStateTax(state, itemType) === ""){
-    //     return 0
-    // }
-    // return new States(states).getState(state).base + new States(states).getStateTax(state, itemType);
-
-}
-
 //const TaxCalculator = require('./taxcalculator');
 
 
@@ -96,7 +87,7 @@ class TaxCalculator {
             result = ( 1 + new States(states).getState(state).base ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
+            result = new States(states).calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
