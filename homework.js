@@ -1,16 +1,6 @@
 "use strict";
 
 // Этот код можно менять как угодно
-var items = {
-    "milk": {price: 5.5, type: "Groceries"},
-    "eggs": {price: 3.0, type: "Groceries"},
-    "coca-cola": {price: 0.4, type: "Groceries"},
-    "amoxicillin": {price: 6.7, type: "Groceries"},
-    "aspirin": {price: 0.2, type: "PrescriptionDrug"},
-    "marijuana": {price: 1.4, type: "PrescriptionDrug"},
-    "hamburger": {price: 2, type: "PreparedFood"},
-    "ceasar salad": {price: 4.2, type: "PreparedFood"},
-};
 
 var states = {
     "Alabama":{"Groceries": 0, "PrescriptionDrug": "", "base":0.04},
