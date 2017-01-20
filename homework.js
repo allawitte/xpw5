@@ -72,7 +72,7 @@ var itemTypes =
         }
     };
 
-function calcNoBasic(state, itemType){
+function calcNoBasicTax(state, itemType){
     const myStates = new States(states);
     if (myStates.getStateTax(state, itemType) === ""){
         return 0
@@ -111,9 +111,7 @@ class TaxCalculator {
         console.log(`----Have a nice day!-----`);
     }
 
-    calcNoBasicTax(state, itemType){
 
-    }
     calculatePriceFor(state, item){
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
