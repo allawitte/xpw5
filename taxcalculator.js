@@ -4,9 +4,7 @@ const statesObj = require('./states');
 const States = require('./statesClass');
 const items = require('./itemsObj');
 class TaxCalculator {
-    constructor(){
-        this._states = statesObj;
-    }
+   
     // У этой функции нелья менять интерфейс
     // Но можно менять содержимое
     calculateTax() {
