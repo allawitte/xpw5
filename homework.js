@@ -52,11 +52,10 @@ class States {
 
 
 function calcNoBasicTax(state, itemType){
-    const myStates = new States(states);
-    if (myStates.getStateTax(state, itemType) === ""){
+    if (new States(states).getStateTax(state, itemType) === ""){
         return 0
     }
-    return new States(states).getState(state).base + myStates.getStateTax(state, itemType);
+    return new States(states).getState(state).base + new States(states).getStateTax(state, itemType);
 
 }
 
