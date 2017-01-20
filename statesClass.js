@@ -12,9 +12,26 @@ class States {
         }
         return arr;
     }
+    getState(state){
+        return this._states[state];
+    }
 
     get randomState(){
         return this.statesNames[Math.floor(Math.random() * this.statesNames.length)];
+    }
+    getBase(state){
+        return this._states[state].base;
+    }
+    getStateTax(state, itemType){
+        return this.getState(state)[itemType];
+    }
+
+    calcNoBasicTax(state, itemType){
+        if (this.getStateTax(state, itemType) === ""){
+            return 0
+        }
+        return this.getBase(state) + this.getStateTax(state, itemType);
+
     }
 }
 module.exports = States;

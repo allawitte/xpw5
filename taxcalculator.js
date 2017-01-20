@@ -20,13 +20,15 @@ class TaxCalculator {
         }
         console.log(`----Have a nice day!-----`);
     }
+
+
     calculatePriceFor(state, item){
         var result = null;
-        if (items[item].type === "PreparedFood") {
-            result = ( 1 + base(state) ) * new Items(items).getItemPrice(item);
+        if (new Items(items).getItemType(item) === "PreparedFood") {
+            result = ( 1 + new States(states).getBase(state) ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = new States(states).calcNoBasicTax(state, items[item].type) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
+            result = new States(states).calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;

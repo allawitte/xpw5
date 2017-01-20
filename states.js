@@ -1,12 +1,12 @@
 'use strict';
 var states = {
-    "Alabama":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Alaska":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Arizona":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Arkansas":{"Groceries": 0.015, "PrescriptionDrug": ""},
-    "California":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Colorado":{"Groceries": 0, "PrescriptionDrug": ""},
-    "Connecticut":{"Groceries": 0, "PrescriptionDrug": ""}
+    "Alabama":{"Groceries": 0, "PrescriptionDrug": "", "base":0.04},
+    "Alaska":{"Groceries": 0, "PrescriptionDrug": "", "base":0},
+    "Arizona":{"Groceries": "", "PrescriptionDrug": "", "base":0.056},
+    "Arkansas":{"Groceries": 0.015, "PrescriptionDrug": "", "base":0.065},
+    "California":{"Groceries": "", "PrescriptionDrug": "", "base":0.075},
+    "Colorado":{"Groceries": "", "PrescriptionDrug": "", "base":0.029},
+    "Connecticut":{"Groceries": "", "PrescriptionDrug": "", "base":0.0635}
 };
 module.exports = states;
 /**
