@@ -19,6 +19,10 @@ class TaxCalculator {
         console.log(`----Have a nice day!-----`);
     }
 
+    calcWithBaseTax(state, item){
+        return ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
+    }
+
 
     calculatePriceFor(state, item){
         var result = null;
