@@ -81,7 +81,7 @@ function calcNoBasicTax(state, itemType){
 
 }
 
-function calc(state, itemType) {
+function calcNoBasicTax(state, itemType) {
 
     var itemTypeTaxModifier = itemTypes[itemType];
     if (itemTypeTaxModifier[state] === "") {
@@ -118,7 +118,7 @@ class TaxCalculator {
             result = ( 1 + new States(states).getState(state).base ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = calc(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
+            result = calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;

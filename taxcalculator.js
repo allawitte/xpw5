@@ -26,7 +26,7 @@ class TaxCalculator {
             result = ( 1 + base(state) ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = calc(state, items[item].type) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
+            result = calcNoBasicTax(state, items[item].type) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
