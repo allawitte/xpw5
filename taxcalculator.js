@@ -27,7 +27,8 @@ class TaxCalculator {
     calculatePriceFor(state, item){
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
-            result = ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
+            result = this.calcWithBaseTax(state, item);
+            //result = ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
         }
         else {
             result = (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
