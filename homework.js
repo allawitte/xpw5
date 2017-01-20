@@ -9,6 +9,7 @@ const TaxCalculator = require('./taxcalculator');
 
 var newState = new States(states);
 newState.addNewState("Tennessee", 0.05, "",  "", 0.07);
+newState.addNewState("Texas", "", 0.0625,  0.0625, 0.0625);
 
 //############################
 //Production - код:
