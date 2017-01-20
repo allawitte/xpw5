@@ -11,7 +11,6 @@ var items = {
     "hamburger": {price: 2, type: "PreparedFood"},
     "ceasar salad": {price: 4.2, type: "PreparedFood"},
 };
-const Items = require('./items');
 
 var states = {
     "Alabama":{"Groceries": 0, "PrescriptionDrug": "", "base":0.04},
