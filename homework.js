@@ -53,7 +53,7 @@ class States {
         if (this.getStateTax(state, itemType) === ""){
             return 0
         }
-        return this.getState(state).base + this.getStateTax(state, itemType);
+        return this.getBase(state) + this.getStateTax(state, itemType);
 
     }
 }
@@ -84,7 +84,7 @@ class TaxCalculator {
     calculatePriceFor(state, item){
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
-            result = ( 1 + new States(states).getState(state).base ) * new Items(items).getItemPrice(item);
+            result = ( 1 + new States(states).getBase(state) ) * new Items(items).getItemPrice(item);
         }
         else {
             result = new States(states).calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
