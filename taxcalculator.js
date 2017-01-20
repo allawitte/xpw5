@@ -34,14 +34,8 @@ class TaxCalculator {
             "Groceries": this.calcWithAdditionalTax(state, item),
             "PrescriptionDrug": this.calcWithAdditionalTax(state, item)
         };
-        var result = null;
-        if (new Items(items).getItemType(item) === "PreparedFood") {
-            result = this.calcWithBaseTax(state, item);
-        }
-        else {
-            result = this.calcWithAdditionalTax(state, item);
-        }
-        result = actions[new Items(items).getItemType(item)];
+
+        var result = actions[new Items(items).getItemType(item)];
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
     }
