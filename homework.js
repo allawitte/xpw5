@@ -72,6 +72,10 @@ var itemTypes =
         }
     };
 
+function calcNoBasic(state, itenType){
+
+}
+
 function calc(state, itemType) {
 
     var itemTypeTaxModifier = itemTypes[itemType];
