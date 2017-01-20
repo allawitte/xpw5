@@ -8,8 +8,8 @@ const states = require('./states');
 const TaxCalculator = require('./taxcalculator');
 
 var newState = new States(states);
-newState.addNewState("Tennessee", 0.05, "",  "", 0.07);
-newState.addNewState("Texas", "", 0.0625,  0.0625, 0.0625);
+newState.addNewState("Tennessee", 0.05, 0.07, 0.07, 0.07);
+newState.addNewState("Texas", "", 0.0625, 0.0625, 0.0625);
 
 //############################
 //Production - код:
@@ -24,7 +24,7 @@ var tests = [
     () => assertEquals(6.7 * (1 + 0.0), new TaxCalculator().calculatePriceFor("Alaska", "amoxicillin")),
     () => assertEquals(6.7 * (1 + 0.0), new TaxCalculator().calculatePriceFor("California", "amoxicillin")),
     () => assertEquals(2 * (1 + 0.0635), new TaxCalculator().calculatePriceFor("Connecticut", "hamburger")),
-    () => assertEquals(2 * (1 + 0.07), new TaxCalculator().calculatePriceFor("Tennessee", "hamburger")),
+    () => assertEquals(2 * (1 + 0.07 + 0.07), new TaxCalculator().calculatePriceFor("Tennessee", "hamburger")),
     () => assertEquals(0.4 * (1 + 0.07 + 0.05), new TaxCalculator().calculatePriceFor("Tennessee", "coca-cola")),
 ];
 
