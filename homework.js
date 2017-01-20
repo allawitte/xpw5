@@ -22,11 +22,11 @@ calculateTaxes();
 //Тесты:
 
 var tests = [
-    () => assertEquals(3.0 * (1 + 0.04),  new TaxCalculator(states).calculatePriceFor("Alabama", "eggs")),
-    () => assertEquals(0.4 * (1 + 0.015 + 0.065),  new TaxCalculator(states).calculatePriceFor("Arkansas", "coca-cola")),
-    () => assertEquals(6.7 * (1 + 0.0),  new TaxCalculator(states).calculatePriceFor("Alaska", "amoxicillin")),
-    () => assertEquals(6.7 * (1 + 0.0),  new TaxCalculator(states).calculatePriceFor("California", "amoxicillin")),
-    () => assertEquals(2 * (1 + 0.0635),  new TaxCalculator(states).calculatePriceFor("Connecticut", "hamburger")),
+    () => assertEquals(3.0 * (1 + 0.04),  new TaxCalculator().calculatePriceFor("Alabama", "eggs")),
+    () => assertEquals(0.4 * (1 + 0.015 + 0.065),  new TaxCalculator().calculatePriceFor("Arkansas", "coca-cola")),
+    () => assertEquals(6.7 * (1 + 0.0),  new TaxCalculator().calculatePriceFor("Alaska", "amoxicillin")),
+    () => assertEquals(6.7 * (1 + 0.0),  new TaxCalculator().calculatePriceFor("California", "amoxicillin")),
+    () => assertEquals(2 * (1 + 0.0635),  new TaxCalculator().calculatePriceFor("Connecticut", "hamburger")),
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
@@ -36,7 +36,7 @@ runAllTests (tests);
 //Код ниже этой строчки не надо менять для выполнения домашней работы
 
 function calculateTaxes() {
-    new TaxCalculator(states).calculateTax();
+    new TaxCalculator().calculateTax();
 }
 
 //############################
