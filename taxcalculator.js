@@ -29,12 +29,16 @@ class TaxCalculator {
 
 
     calculatePriceFor(state, item){
+        var actions = {
+            "PreparedFood": this.calcWithBaseTax(state, item),
+            "Groceries": this.calcWithAdditionalTax(state, item),
+            "PrescriptionDrug": this.calcWithAdditionalTax(state, item)
+        };
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
             result = this.calcWithBaseTax(state, item);
         }
         else {
-            //result = (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
             result = this.calcWithAdditionalTax(state, item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
