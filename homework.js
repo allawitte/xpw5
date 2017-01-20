@@ -48,6 +48,14 @@ class States {
     getStateTax(state, itemType){
         return this.getState(state)[itemType];
     }
+
+    calcNoBasicTax(state, itemType){
+        if (this.getStateTax(state, itemType) === ""){
+            return 0
+        }
+        return this.getState(state).base + this.getStateTax(state, itemType);
+
+    }
 }
 
 
