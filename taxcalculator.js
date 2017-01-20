@@ -34,8 +34,8 @@ class TaxCalculator {
             result = this.calcWithBaseTax(state, item);
         }
         else {
-            result = (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
-
+            //result = (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
+            result = this.calcWithAdditionalTax(state, item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
