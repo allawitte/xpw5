@@ -16,11 +16,11 @@ const Items = require('./items');
 var states = {
     "Alabama":{"Groceries": 0, "PrescriptionDrug": "", "base":0.04},
     "Alaska":{"Groceries": 0, "PrescriptionDrug": "", "base":0},
-    "Arizona":{"Groceries": 0, "PrescriptionDrug": "", "base":0.056},
+    "Arizona":{"Groceries": "", "PrescriptionDrug": "", "base":0.056},
     "Arkansas":{"Groceries": 0.015, "PrescriptionDrug": "", "base":0.065},
-    "California":{"Groceries": 0, "PrescriptionDrug": "", "base":0.075},
-    "Colorado":{"Groceries": 0, "PrescriptionDrug": "", "base":0.029},
-    "Connecticut":{"Groceries": 0, "PrescriptionDrug": "", "base":0.0635}
+    "California":{"Groceries": "", "PrescriptionDrug": "", "base":0.075},
+    "Colorado":{"Groceries": "", "PrescriptionDrug": "", "base":0.029},
+    "Connecticut":{"Groceries": "", "PrescriptionDrug": "", "base":0.0635}
 };
 
 class States {
@@ -74,11 +74,21 @@ var itemTypes =
 
 function calcNoBasicTax(state, itemType){
     const myStates = new States(states);
+    console.log('myStates.getStateTax(state, itemType)', myStates.getStateTax(state, itemType));
     if (myStates.getStateTax(state, itemType) === ""){
         return 0
     }
     return new States(states).getState(state).base + myStates.getStateTax(state, itemType);
 
+}
+
+function calc(state, itemType) {
+
+    var itemTypeTaxModifier = itemTypes[itemType];
+    if (itemTypeTaxModifier[state] === "") {
+        return 0;
+    }
+    return new States(states).getState(state).base + itemTypeTaxModifier[state];
 }
 
 //const TaxCalculator = require('./taxcalculator');
