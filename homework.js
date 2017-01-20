@@ -82,15 +82,6 @@ function calcNoBasicTax(state, itemType){
 
 }
 
-function calc(state, itemType) {
-
-    var itemTypeTaxModifier = itemTypes[itemType];
-    if (itemTypeTaxModifier[state] === "") {
-        return 0;
-    }
-    return new States(states).getState(state).base + itemTypeTaxModifier[state];
-}
-
 //const TaxCalculator = require('./taxcalculator');
 
 
