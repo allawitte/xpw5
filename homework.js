@@ -50,31 +50,9 @@ class States {
     }
 }
 
-var itemTypes =
-    {
-        "Groceries": {
-            "Alabama": 0,
-            "Alaska": 0,
-            "Arizona": "",
-            "Arkansas": 0.015,
-            "California": "",
-            "Colorado": "",
-            "Connecticut": ""
-        },
-        "PrescriptionDrug": {
-            "Alabama": "",
-            "Alaska": 0,
-            "Arizona": "",
-            "Arkansas": "",
-            "California": "",
-            "Colorado": "",
-            "Connecticut": ""
-        }
-    };
 
 function calcNoBasicTax(state, itemType){
     const myStates = new States(states);
-    console.log('myStates.getStateTax(state, itemType)', myStates.getStateTax(state, itemType));
     if (myStates.getStateTax(state, itemType) === ""){
         return 0
     }
