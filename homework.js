@@ -60,10 +60,11 @@ class States {
 
 
 function calcNoBasicTax(state, itemType){
-    if (new States(states).getStateTax(state, itemType) === ""){
-        return 0
-    }
-    return new States(states).getState(state).base + new States(states).getStateTax(state, itemType);
+    return new States(states).calcNoBasicTax(state, itemType);
+    // if (new States(states).getStateTax(state, itemType) === ""){
+    //     return 0
+    // }
+    // return new States(states).getState(state).base + new States(states).getStateTax(state, itemType);
 
 }
 
