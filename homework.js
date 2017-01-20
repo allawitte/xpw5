@@ -72,7 +72,12 @@ var itemTypes =
         }
     };
 
-function calcNoBasic(state, itenType){
+function calcNoBasic(state, itemType){
+    const myStates = new States(states);
+    if (myStates.getStateTax(state, itemType) === ""){
+        return 0
+    }
+    return new States(states).getState(state).base + myStates.getStateTax(state, itemType);
 
 }
 
