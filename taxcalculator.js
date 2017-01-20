@@ -1,16 +1,16 @@
 'use strict';
 const Items = require('./items');
-const states = require('./states');
+const statesObj = require('./states');
 const States = require('./statesClass');
 const items = require('./itemsObj');
 class TaxCalculator {
     constructor(){
-        this._states = states;
+        this._states = statesObj;
     }
     // У этой функции нелья менять интерфейс
     // Но можно менять содержимое
     calculateTax() {
-        var states = new States(this._states);
+        var states = new States(statesObj);
         var ordersCount = this.ordersCount;
         var state = states.randomState;
         console.log(`----------${state}-----------`);
@@ -25,10 +25,10 @@ class TaxCalculator {
     calculatePriceFor(state, item){
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
-            result = ( 1 + new States(states).getBase(state) ) * new Items(items).getItemPrice(item);
+            result = ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
         }
         else {
-            result = new States(states).calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
+            result = new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item)) * new Items(items).getItemPrice(item) + new Items(items).getItemPrice(item);
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
