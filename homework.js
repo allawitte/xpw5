@@ -45,6 +45,9 @@ class States {
     getBase(state){
         return this._states[state].base;
     }
+    getStateTax(state, itemType){
+        return this.getState(state)[itemType];
+    }
 }
 
 var itemTypes =
@@ -97,6 +100,10 @@ class TaxCalculator {
             this.calculatePriceFor(state, item);
         }
         console.log(`----Have a nice day!-----`);
+    }
+
+    calcNoBasicTax(state, itemType){
+
     }
     calculatePriceFor(state, item){
         var result = null;
