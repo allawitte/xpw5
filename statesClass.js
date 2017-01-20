@@ -34,8 +34,13 @@ class States {
 
     }
 
-    addNewState(state,  Groceries){
-
+    addNewState(state,  Groceries, PrescriptionDrug, PreparedFood, base){
+        states[state] = {
+            "Groceries": Groceries,
+            "PrescriptionDrug": PrescriptionDrug,
+            "PreparedFood": PreparedFood,
+            "base": base
+        }
     }
 }
 module.exports = States;
