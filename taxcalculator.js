@@ -29,13 +29,11 @@ class TaxCalculator {
 
 
     calculatePriceFor(state, item){
-        var actions = {
+        var result = {
             "PreparedFood": this.calcWithBaseTax(state, item),
             "Groceries": this.calcWithAdditionalTax(state, item),
             "PrescriptionDrug": this.calcWithAdditionalTax(state, item)
-        };
-
-        var result = actions[new Items(items).getItemType(item)];
+        }[new Items(items).getItemType(item)];
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
     }
