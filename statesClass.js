@@ -33,6 +33,10 @@ class States {
         return this.getBase(state) + this.getStateTax(state, itemType);
 
     }
+
+    addNewState(state,  Groceries){
+
+    }
 }
 module.exports = States;
 /**
