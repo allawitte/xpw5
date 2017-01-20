@@ -23,15 +23,19 @@ class TaxCalculator {
         return ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
     }
 
+    calcWithAdditionalTax(state, item){
+        return (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
+    }
+
 
     calculatePriceFor(state, item){
         var result = null;
         if (new Items(items).getItemType(item) === "PreparedFood") {
             result = this.calcWithBaseTax(state, item);
-            //result = ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
         }
         else {
             result = (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
+
         }
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
