@@ -41,6 +41,7 @@ class TaxCalculator {
         else {
             result = this.calcWithAdditionalTax(state, item);
         }
+        result = actions[new Items(items).getItemType(item)];
         console.log(`${item}: $${result.toFixed(2)}`);
         return result;
     }
