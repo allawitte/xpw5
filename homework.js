@@ -14,6 +14,7 @@ newState.addNewState("Texas", "", 0.0625, "", 0.0625);
 //############################
 //Production - код:
 calculateTaxes();
+//console.log('state', newState.randomState);
 
 //############################
 //Тесты:
@@ -36,7 +37,7 @@ runAllTests(tests);
 //Код ниже этой строчки не надо менять для выполнения домашней работы
 
 function calculateTaxes() {
-    new TaxCalculator().calculateTax();
+    new TaxCalculator("Alabama", 2).calculateTax();
 }
 
 //############################

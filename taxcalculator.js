@@ -14,7 +14,8 @@ class TaxCalculator {
     calculateTax() {
         var states = new States(statesObj);
         var ordersCount = this.ordersCount;
-        var state = states.randomState;
+        //var state = states.randomState;
+       var state = this._state;
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
             var item = new Items(items).randomItem;
