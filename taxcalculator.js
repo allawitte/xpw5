@@ -3,8 +3,9 @@ const Items = require('./items');
 const statesObj = require('./states');
 const States = require('./statesClass');
 const items = require('./itemsObj');
+const Printer = require('./printer');
 class TaxCalculator {
-    constructor(state, items){
+    constructor(state, items) {
         this._state = state;
         this._items = items;
     }
@@ -15,23 +16,32 @@ class TaxCalculator {
 
         var items = this._items;
         var state = this._state;
+        var itemsToPay = [];
 
         console.log(`----------${state}-----------`);
-        items.forEach(item => this.calculatePriceFor(state, item));
+        items.forEach(item => {
+            itemsToPay.push({
+                'item': item,
+                'toPay': this.calculatePriceFor(state, item)
+            });
+
+        });
 
         console.log(`----Have a nice day!-----`);
+        let printer = new Printer(state, itemsToPay);
+        printer.printInvoice();
     }
 
-    calcWithBaseTax(state, item){
+    calcWithBaseTax(state, item) {
         return ( 1 + new States(statesObj).getBase(state) ) * new Items(items).getItemPrice(item);
     }
 
-    calcWithAdditionalTax(state, item){
-        return (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item))  + 1)*new Items(items).getItemPrice(item);
+    calcWithAdditionalTax(state, item) {
+        return (new States(statesObj).calcNoBasicTax(state, new Items(items).getItemType(item)) + 1) * new Items(items).getItemPrice(item);
     }
 
 
-    calculatePriceFor(state, item){
+    calculatePriceFor(state, item) {
         var result = {
             "PreparedFood": this.calcWithBaseTax(state, item),
             "Groceries": this.calcWithAdditionalTax(state, item),
@@ -41,7 +51,7 @@ class TaxCalculator {
         return result;
     }
 
-    get ordersCount(){
+    get ordersCount() {
         return Math.floor(Math.random() * 3) + 1;
     }
 }
