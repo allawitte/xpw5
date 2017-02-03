@@ -12,15 +12,13 @@ class TaxCalculator {
     // У этой функции нелья менять интерфейс
     // Но можно менять содержимое
     calculateTax() {
-        var states = new States(statesObj);
-        var ordersCount = this.ordersCount;
-        //var state = states.randomState;
-       var state = this._state;
+
+        var items = this._items;
+        var state = this._state;
+
         console.log(`----------${state}-----------`);
-        for (var i = 0; i < ordersCount; i++) {
-            var item = new Items(items).randomItem;
-            this.calculatePriceFor(state, item);
-        }
+        items.forEach(item => this.calculatePriceFor(state, item));
+
         console.log(`----Have a nice day!-----`);
     }
 

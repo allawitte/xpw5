@@ -37,7 +37,7 @@ runAllTests(tests);
 //Код ниже этой строчки не надо менять для выполнения домашней работы
 
 function calculateTaxes() {
-    new TaxCalculator("Alabama", 2).calculateTax();
+    new TaxCalculator("Alabama", ["eggs", "ceasar salad"]).calculateTax();
 }
 
 //############################
