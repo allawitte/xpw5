@@ -18,7 +18,6 @@ class TaxCalculator {
         var state = this._state;
         var itemsToPay = [];
 
-        console.log(`----------${state}-----------`);
         items.forEach(item => {
             itemsToPay.push({
                 'item': item,
@@ -27,9 +26,9 @@ class TaxCalculator {
 
         });
 
-        console.log(`----Have a nice day!-----`);
         let printer = new Printer(state, itemsToPay);
-        printer.printInvoice();
+        console.log(printer.printInvoice());
+        return printer.printInvoice();
     }
 
     calcWithBaseTax(state, item) {
@@ -47,7 +46,6 @@ class TaxCalculator {
             "Groceries": this.calcWithAdditionalTax(state, item),
             "PrescriptionDrug": this.calcWithAdditionalTax(state, item)
         }[new Items(items).getItemType(item)];
-        console.log(`${item}: $${result.toFixed(2)}`);
         return result;
     }
 

@@ -7,11 +7,12 @@ class Printer {
     }
 
     printInvoice(){
-        console.log(`----------${this._state}-----------`);
+        var text = `----------${this._state}-----------\n`;
         this._items.forEach(item => {
-            console.log(`${item['item']}: $${item['toPay'].toFixed(2)}`);
+            text +=`${item['item']}: $${item['toPay'].toFixed(2)}\n`;
         });
-        console.log(`----Have a nice day!-----`);
+        text += `----Have a nice day!-----`;
+        return text;
     }
 }
 

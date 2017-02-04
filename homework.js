@@ -1,6 +1,7 @@
 "use strict";
 const States = require('./statesClass');
 const states = require('./states');
+const Printer = require('./printer');
 
 // Этот код можно менять как угодно
 
@@ -31,7 +32,7 @@ var tests = [
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
-runAllTests(tests);
+//runAllTests(tests);
 
 //############################
 //Код ниже этой строчки не надо менять для выполнения домашней работы
@@ -43,14 +44,42 @@ function calculateTaxes() {
 //############################
 // Кустарный способ писать тесты
 
+function testForCalculateTax(){
+    var taxCalculator = new TaxCalculator("Alabama", ["eggs", "ceasar salad"]);
+
+}
+
+function testForCalculateTax(){
+    var invoiceExample = '----------Alabama-----------\n'+
+    'eggs: $3.12\n'+
+    'ceasar salad: $4.37\n'+
+    '----Have a nice day!-----';
+    var invoicePrinted = new TaxCalculator("Alabama", ["eggs", "ceasar salad"]).calculateTax();
+    assertEquals(invoiceExample, invoicePrinted);
+}
+testForCalculateTax();
+
 function assertEquals(expected, actual) {
-    var epsilon = 0.000001;
-    var difference = Math.abs(expected - actual);
-    if (difference > epsilon || difference === undefined || isNaN(difference)) {
-        console.error(`Fail! Expected: ${expected}, Actual: ${actual}`);
-        return -1;
+    if(typeof(expected) == 'string' && typeof(actual) == 'string'){
+        console.log('string');
+        if(expected ===  actual) {
+            console.log('Test passed');
+            return 0;
+        }
+        else{
+            console.error(`Fail! Expected: ${expected}, Actual: ${actual}`);
+            return -1;
+        }
     }
-    return 0;
+    else{
+        var epsilon = 0.000001;
+        var difference = Math.abs(expected - actual);
+        if (difference > epsilon || difference === undefined || isNaN(difference)) {
+            console.error(`Fail! Expected: ${expected}, Actual: ${actual}`);
+            return -1;
+        }
+        return 0;
+    }
 }
 
 function runAllTests(tests) {
